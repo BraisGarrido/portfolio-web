@@ -27,6 +27,23 @@ Este proyecto está preparado para publicar en GitHub Pages desde la rama `gh-pa
 npm run deploy
 ```
 
+## Deploy automático con GitHub Actions (recomendado)
+
+Este repo incluye un workflow en `.github/workflows/deploy.yml` que:
+
+- hace build en cada `push` a `main`
+- publica automáticamente a **GitHub Pages** usando **GitHub Actions**
+
+### Configuración en GitHub (1 vez)
+
+En GitHub: **Settings → Pages**
+
+- **Source**: `GitHub Actions`
+
+Después, con cada push a `main`, se actualizará la web.
+
+> Nota: el workflow calcula el `base` como `/${{ github.event.repository.name }}/`.
+
 ### Nota sobre el nombre del repo
 
 El script usa `/${npm_package_name}/` como `base` para Vite.
